@@ -113,10 +113,18 @@
     ────────────────────────────────────────────── */
     const navbar = document.getElementById('navbar');
 
+    const heroSection = document.querySelector('.hero');
+
     function updateNavbar() {
-        if (window.pageYOffset > 60) {
-            navbar.classList.add('scrolled');
+        const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+        const scrollY = window.pageYOffset;
+
+        // Show navbar only after scrolling past the hero
+        if (scrollY >= heroHeight) {
+            navbar.classList.add('nav-visible');
+            navbar.classList.add('scrolled'); // always use glass bg once past hero
         } else {
+            navbar.classList.remove('nav-visible');
             navbar.classList.remove('scrolled');
         }
     }
@@ -150,7 +158,7 @@
     /* ──────────────────────────────────────────────
        5. COUNTDOWN TIMER — June 22, 2026
     ────────────────────────────────────────────── */
-    const weddingDate = new Date('2026-06-23T19:30:00+05:30').getTime();
+    const weddingDate = new Date('2026-06-24T18:30:00+05:30').getTime();
 
     const cdDays  = document.getElementById('cd-days');
     const cdHours = document.getElementById('cd-hours');

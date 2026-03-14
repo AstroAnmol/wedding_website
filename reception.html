@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavini & Anmol — June 2026 | Wedding Invitation</title>
+    <meta name="description" content="Join us in celebrating the wedding of Bhavini & Anmol on June 23-24, 2026 at the Radisson Blu Hotel, Amritsar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Petals Canvas -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">Bhavs <span class="nav-ampersand">&</span> Mau</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-parallax-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+
+        <!-- Floating Decorative Elements -->
+        <!-- <div class="deco-ring deco-ring-1"></div>
+        <div class="deco-ring deco-ring-2"></div>
+        <div class="deco-ring deco-ring-3"></div> -->
+
+        <div class="hero-content">
+            <p class="hero-eyebrow scroll-reveal">We invite you to celebrate</p>
+            <h1 class="hero-names">
+                <span class="name-bride">Bhavini</span>
+                <span class="hero-amp">&amp;</span>
+                <span class="name-groom">Anmol</span>
+            </h1>
+            <div class="hero-divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">✦</span>
+                <span class="divider-line"></span>
+            </div>
+            <p class="hero-date">June 23 - 24, 2026</p>
+            <p class="hero-location">Amritsar, Punjab, India</p>
+            <a href="#events" class="hero-cta">
+                <span>Be a part of our special day ♥</span>
+            </a>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll Down</span>
+            <!-- <div class="scroll-line"></div> -->
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="countdown-section">
+        <div class="countdown-container">
+            <p class="countdown-label">Counting down to the big day</p>
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-days">—</span>
+                    <span class="countdown-unit">Days</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-hours">—</span>
+                    <span class="countdown-unit">Hours</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-mins">—</span>
+                    <span class="countdown-unit">Minutes</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-secs">—</span>
+                    <span class="countdown-unit">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section — commented out
+    <section id="story" class="story-section">
+        ...
+    </section>
+    -->
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-header scroll-reveal">
+            <p class="section-eyebrow">Bhavs & Mau</p>
+            <h2 class="section-title">Our Moments</h2>
+            <div class="title-ornament">
+                <span class="ornament-line"></span>
+                <span class="ornament-diamond">◆</span>
+                <span class="ornament-line"></span>
+            </div>
+        </div>
+
+        <!-- Row 1 — scrolls left: photos 1–8 + duplicate -->
+        <div class="gallery-strip gallery-strip--left">
+            <div class="gallery-track" id="gallery-track-1">
+                <!-- set 1 -->
+                <div class="gallery-item"><img src="images/gallery/photo1.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo2.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo3.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo4.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo5.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo6.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo7.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo8.jpeg" alt="Bhavini and Anmol"></div>
+                <!-- set 2 — duplicate for seamless loop -->
+                <div class="gallery-item"><img src="images/gallery/photo1.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo2.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo3.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo4.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo5.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo6.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo7.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo8.jpeg" alt="Bhavini and Anmol"></div>
+            </div>
+        </div>
+
+        <!-- Row 2 — scrolls right: photos 15–9 reversed + duplicate -->
+        <div class="gallery-strip gallery-strip--right">
+            <div class="gallery-track" id="gallery-track-2">
+                <!-- set 1 -->
+                <div class="gallery-item"><img src="images/gallery/photo15.JPG" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo14.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo13.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo12.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo11.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo10.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo9.jpeg" alt="Bhavini and Anmol"></div>
+                <!-- set 2 — duplicate for seamless loop -->
+                <div class="gallery-item"><img src="images/gallery/photo15.JPG" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo14.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo13.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo12.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo11.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo10.jpeg" alt="Bhavini and Anmol"></div>
+                <div class="gallery-item"><img src="images/gallery/photo9.jpeg" alt="Bhavini and Anmol"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="events-bg-pattern"></div>
+        <div class="section-header scroll-reveal">
+            <!-- <p class="section-eyebrow">Mark Your Calendars</p> -->
+            <h2 class="section-title">Mark your calendars</h2>
+            <div class="title-ornament">
+                <span class="ornament-line"></span>
+                <span class="ornament-diamond">◆</span>
+                <span class="ornament-line"></span>
+            </div>
+        </div>
+        <div class="invite-cards-grid">
+
+            <!-- Reception  -->
+            <div class="invite-card scroll-reveal" style="--delay: 0.3s">
+                <div class="invite-card-inner">
+                    <img src="images/cards/reception_v2.png" alt="Reception" class="invite-card-img">
+                    <div class="invite-card-overlay">
+                        <p class="invite-card-overlay-event">Reception</p>
+                        <p class="invite-card-overlay-detail">June 24 · 8:00 PM</p>
+                        <p class="invite-card-overlay-detail">Hotel Radisson Blu, Amritsar</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue" class="venue-section">
+        <div class="section-header scroll-reveal">
+            <p class="section-eyebrow">Where to Find Us</p>
+            <h2 class="section-title">Venue</h2>
+            <div class="title-ornament">
+                <span class="ornament-line"></span>
+                <span class="ornament-diamond">◆</span>
+                <span class="ornament-line"></span>
+            </div>
+        </div>
+        <div class="venue-content scroll-reveal">
+            <div class="venue-card">
+                <div class="venue-card-icon">🏨</div>
+                <h3>Radisson Blu Hotel</h3>
+                <p class="venue-tagline">Amritsar, Punjab</p>
+                <p class="venue-desc">All ceremonies will be held at the Radisson Blu Hotel.</p>
+                <div class="venue-details">
+                    <div class="venue-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        Ajnala Road, 8th Mile Stone, Amritsar, Punjab 143001, India
+                    </div>
+                    <!-- <div class="venue-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        
+                    </div> -->
+                </div>
+                <a href="https://maps.google.com/?q=Radisson+Blu+Hotel+Amritsar" target="_blank" class="venue-map-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Get Directions
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Bhavs <span class="footer-amp">&</span> Mau</div>
+        <p class="footer-date">June 23 - 24, 2026 • Amritsar</p>
+        <p class="footer-quote"></p>
+        <p class="footer-copy">Made with ♥ for our most precious guests</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
