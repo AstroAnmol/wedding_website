@@ -236,7 +236,7 @@ body {
     font-size: clamp(4rem, 10vw, 9rem);
     font-weight: 400;
     line-height: 1.05;
-    color: var(--white);
+    color: var(--gold);
     text-shadow: 0 2px 40px rgba(0,0,0,0.6);
     opacity: 0;
     transform: translateY(30px);
@@ -911,12 +911,14 @@ body {
     flex-direction: column;
     gap: 12px;
     margin-bottom: 32px;
-    text-align: left;
+    text-align: center;
+    align-items: center;
 }
 
 .venue-detail {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     gap: 10px;
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -1086,6 +1088,153 @@ body {
     letter-spacing: 1px;
 }
 
+/* ---------- Lightbox ---------- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease-smooth);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.7);
+    transform: scale(0.92);
+    transition: transform 0.4s var(--ease-bounce);
+}
+
+.lightbox.open .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+    transform: rotate(90deg);
+}
+
+/* ---------- Invite Image Cards (Festivities) ---------- */
+.invite-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.invite-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 16px 60px rgba(0,0,0,0.25);
+    transition: transform 0.45s var(--ease-smooth), box-shadow 0.45s;
+    cursor: pointer;
+}
+
+.invite-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+}
+
+.invite-card-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #0e0508;
+}
+
+.invite-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s var(--ease-smooth);
+}
+
+.invite-card:hover .invite-card-img {
+    transform: scale(1.03);
+}
+
+.invite-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(20, 5, 10, 0.85) 0%,
+        rgba(20, 5, 10, 0.2) 40%,
+        transparent 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 36px 48px;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-smooth);
+}
+
+.invite-card:hover .invite-card-overlay {
+    opacity: 1;
+}
+
+.invite-card-overlay-event {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.invite-card-overlay-detail {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .invite-cards-grid {
+        padding: 0 20px;
+        gap: 20px;
+    }
+    .invite-card-overlay { padding: 24px; }
+    .invite-card-overlay-event { font-size: 2rem; }
+}
+
 /* ---------- Gallery Section ---------- */
 .gallery-section {
     padding: 110px 0 80px;
@@ -1144,11 +1293,11 @@ body {
 
 @keyframes scrollLeft {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
+    100% { transform: translateX(-50%); }
 }
 
 @keyframes scrollRight {
-    0%   { transform: translateX(-33.333%); }
+    0%   { transform: translateX(-50%); }
     100% { transform: translateX(0); }
 }
 

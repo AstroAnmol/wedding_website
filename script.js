@@ -150,7 +150,7 @@
     /* ──────────────────────────────────────────────
        5. COUNTDOWN TIMER — June 22, 2026
     ────────────────────────────────────────────── */
-    const weddingDate = new Date('2026-06-22T00:00:00').getTime();
+    const weddingDate = new Date('2026-06-23T19:30:00+05:30').getTime();
 
     const cdDays  = document.getElementById('cd-days');
     const cdHours = document.getElementById('cd-hours');
@@ -281,6 +281,50 @@
             const factor = (i + 1) * 6;
             ring.style.transform = `translate(calc(-50% + ${mx * factor}px), calc(-50% + ${my * factor}px))`;
         });
+    });
+
+    /* ──────────────────────────────────────────────
+       11. LIGHTBOX — tap invite card to fullscreen
+    ────────────────────────────────────────────── */
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        // Clear src after fade-out to avoid flash on reopen
+        setTimeout(() => { lightboxImg.src = ''; }, 350);
+    }
+
+    // Attach click to every invite card
+    document.querySelectorAll('.invite-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const img = card.querySelector('.invite-card-img');
+            if (img) openLightbox(img.src, img.alt);
+        });
+    });
+
+    // Close on button
+    lightboxClose?.addEventListener('click', closeLightbox);
+
+    // Close on backdrop click (not on image itself)
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+            closeLightbox();
+        }
     });
 
 })();
