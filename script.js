@@ -159,10 +159,11 @@
        5. COUNTDOWN TIMER
     ────────────────────────────────────────────── */
     const countdownSec = document.getElementById('countdown');
-    let weddingDate = new Date('2026-06-24T13:00:00Z').getTime(); // Default to Shaadi time (6:30 PM IST)
+    let weddingDate = 1782306000000; // Default to Shaadi time (June 24, 2026, 6:30 PM IST, UTC timestamp)
 
     if (countdownSec && countdownSec.hasAttribute('data-date')) {
-        weddingDate = new Date(countdownSec.getAttribute('data-date')).getTime();
+        // Use exact millisecond timestamp integer for cross-browser, cross-device parity (especially iOS Safari)
+        weddingDate = parseInt(countdownSec.getAttribute('data-date'), 10);
     }
 
     const cdDays  = document.getElementById('cd-days');
