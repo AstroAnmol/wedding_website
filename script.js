@@ -156,9 +156,14 @@
 
 
     /* ──────────────────────────────────────────────
-       5. COUNTDOWN TIMER — June 22, 2026
+       5. COUNTDOWN TIMER
     ────────────────────────────────────────────── */
-    const weddingDate = new Date('2026-06-24T18:30:00+05:30').getTime();
+    const countdownSec = document.getElementById('countdown');
+    let weddingDate = new Date('2026-06-24T13:00:00Z').getTime(); // Default to Shaadi time (6:30 PM IST)
+
+    if (countdownSec && countdownSec.hasAttribute('data-date')) {
+        weddingDate = new Date(countdownSec.getAttribute('data-date')).getTime();
+    }
 
     const cdDays  = document.getElementById('cd-days');
     const cdHours = document.getElementById('cd-hours');
